@@ -1,0 +1,19 @@
+.input {
+  width: 400px;
+  font-size: 26px;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.submit_btn {
+  font-size: 26px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+
+  transition: 0.3s ease-in;
+}
+.submit_btn:hover {
+  background-color: rgb(216, 218, 220);
+}

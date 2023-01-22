@@ -1,0 +1,13 @@
+<div class="wrapper">
+  <h1 class="title">{{ title | titlecase }}</h1>
+  <!-- 
+ 
+  <app-todoList [todo]="todos[0]"> </app-todoList> -->
+  <app-todoForm (newItemEvent)="addItem($event)"></app-todoForm>
+
+  <app-todoList
+    *ngFor="let todo of todos; let i = index"
+    [todo]="todo"
+    (delete)="deleteTodo($event)"
+  ></app-todoList>
+</div>

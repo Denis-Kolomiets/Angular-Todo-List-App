@@ -1,0 +1,10 @@
+<div class="todo">
+  <p>{{ todo.title }}</p>
+  <button
+    [ngStyle]="{ fontWeight: 'bold' }"
+    class="del_btn"
+    (click)="deleteTodo(todo)"
+  >
+    X
+  </button>
+</div>
