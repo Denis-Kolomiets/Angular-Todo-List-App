@@ -4,7 +4,6 @@ import { TodosService } from './services/todos.services';
 
 // import { todos as data } from './data/data';
 import { v4 as uuidv4 } from 'uuid';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -26,15 +25,23 @@ export class AppComponent implements OnInit {
   }
 
   addItem(title: string) {
-    this.todos.unshift({
-      title,
-      userId: 0,
-      id: uuidv4(),
-      completed: false,
-    });
-    title = '';
+    if (title) {
+      this.todos.unshift({
+        title,
+        userId: 0,
+        id: uuidv4(),
+        completed: false,
+      });
+      title = '';
+    }
   }
-
+  toggleDisabled(id: Todo['id']) {
+    this.todos = this.todos.map((todo) => {
+      return todo.id === id
+        ? { ...todo, completed: !todo.completed }
+        : { ...todo };
+    });
+  }
   deleteTodo(todo: Todo) {
     this.todos = this.todos.filter((item) => item.id != todo.id);
   }

@@ -1,6 +1,14 @@
 <div class="todo">
+  <input
+    class="check"
+    type="checkbox"
+    [checked]="todo.completed"
+    (click)="toggleDisabled(todo.id)"
+  />
+
   <p>{{ todo.title }}</p>
   <button
+    [disabled]="!todo.completed"
     [ngStyle]="{ fontWeight: 'bold' }"
     class="del_btn"
     (click)="deleteTodo(todo)"

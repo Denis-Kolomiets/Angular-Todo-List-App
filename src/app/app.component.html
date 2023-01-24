@@ -4,10 +4,11 @@
  
   <app-todoList [todo]="todos[0]"> </app-todoList> -->
   <app-todoForm (newItemEvent)="addItem($event)"></app-todoForm>
-
+  <div class="empty" *ngIf="!todos.length">Todo list Empty!</div>
   <app-todoList
     *ngFor="let todo of todos; let i = index"
     [todo]="todo"
+    (toggle)="toggleDisabled($event)"
     (delete)="deleteTodo($event)"
   ></app-todoList>
 </div>
